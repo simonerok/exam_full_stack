@@ -1,0 +1,23 @@
+
+1. 
+headline: KEABnB 
+tags: python, SQLite
+img: #
+
+
+2. 
+headline: Wordpress redesigns
+tags: Wordpress, Figma, design, php
+img: #
+
+
+3. 
+headline: rawg full-stack project
+tags: REACT, API, mySQL
+img: #
+
+
+4. 
+headline: PTH - internship project
+tags: REACT NATIVE, API, FIGMA, IOS/ANDROIT
+img: #
