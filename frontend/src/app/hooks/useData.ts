@@ -4,11 +4,6 @@ import { useState, useEffect } from "react";
 import { AxiosRequestConfig } from "axios";
 import apiClient from "../services/api-client";
 
-interface Response<T> {
-  count: number;
-  results: T[];
-}
-
 const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, dependencies: any[] = []) => {
   const [data, setData] = useState<T[]>([]);
   const [error, setError] = useState<string | null>(null);
@@ -18,13 +13,18 @@ const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, depend
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const response = await apiClient.get<Response<T>>(endpoint, requestConfig);
-        setData(response.data.results);
+        console.log(`Fetching data from ${endpoint}`);
+        const response = await apiClient.get<T[]>(endpoint, requestConfig);
+        console.log("Full response:", response);
+        console.log("Data fetched:", response.data);
+        setData(response.data); // Directly set the data from response.data
         setError(null);
       } catch (err) {
         if (err instanceof Error) {
+          console.error("Error fetching data:", err.message);
           setError(err.message);
         } else {
+          console.error("Unknown error fetching data");
           setError("An unknown error occurred");
         }
       } finally {
