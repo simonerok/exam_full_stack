@@ -2,9 +2,9 @@
   "name": "exam_full_stack",
   "version": "0.1.0",
   "scripts": {
-    "dev": "next dev -p 3001",
+    "dev": "next dev",
     "build": "next build",
-    "start": "next start -p 3001"
+    "start": "next start"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
@@ -14,6 +14,7 @@
     "@next/font": "^14.2.15",
     "@types/axios": "^0.9.36",
     "axios": "^1.7.7",
+    "cors": "^2.8.5",
     "next": "14.2.15",
     "react": "^18",
     "react-dom": "^18"

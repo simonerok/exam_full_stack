@@ -1,14 +1,14 @@
-USE `projects_db`;
+USE projectsdb;
 
--- Insert realistic projects
-INSERT INTO `projects` (`name`, `description`, `img_url`)
+-- Insert  projects
+INSERT INTO projects (name, description, img_url)
 VALUES
 ('E-commerce Platform', 'A comprehensive e-commerce platform for online shopping.', 'ecommerce.jpg'),
 ('WordPress Projects', 'A collection of WordPress projects and themes.', 'wordpress.jpg'),
 ('Booking Site', 'A user-friendly booking site for various services.', 'booking.jpg');
 
 -- Insert tags
-INSERT INTO `tags` (`name`)
+INSERT INTO tags (name)
 VALUES
 ('Web Development'),
 ('E-commerce'),
@@ -17,7 +17,7 @@ VALUES
 ('Services');
 
 -- Associate projects with tags
-INSERT INTO `projects_has_tags` (`projects_id`, `tags_id`)
+INSERT INTO projects_has_tags (projects_id, tags_id)
 VALUES
 (1, 1), -- E-commerce Platform -> Web Development
 (1, 2), -- E-commerce Platform -> E-commerce

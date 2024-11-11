@@ -1,5 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
+// This class defines the Project entity for TypeORM, which maps to the 'projects' table in the database.
 @Entity("projects")
 export class Project {
   @PrimaryGeneratedColumn({ type: "int", name: "id" })

@@ -1,16 +1,30 @@
 import { Router } from "express";
-import { Project } from "../entities/Project";
 import { AppDataSource } from "../startup/data-source";
+import { Project } from "../entities/Project";
 
 const router = Router();
 
-const projectRepository = AppDataSource.getRepository(Project);
+// Connect to the database
+const dbConnectMySQL = async () => {
+  try {
+    await AppDataSource.initialize();
+    console.log("Connected to MySQL");
+  } catch (error) {
+    console.error("Error connecting to MySQL", error);
+  }
+};
 
-// Placeholder route for getting projects
+// Get all projects
 router.get("/", async (req, res) => {
-  const projects = await projectRepository.find();
-  res.send(projects);
-  // res.json({ message: "This is a placeholder for getting projects" });
+  try {
+    await dbConnectMySQL();
+    // Project is defined in the entities folder
+    const projectRepository = AppDataSource.getRepository(Project);
+    const projects = await projectRepository.find();
+    res.send(projects);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching projects" });
+  }
 });
 
 // Placeholder route for creating a project
