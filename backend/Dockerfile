@@ -1,8 +1,11 @@
 # Use the official Node.js image as the base image
-FROM node:18-alpine
+FROM node:18
 
 # Set the working directory
 WORKDIR /app
+
+ARG SERVER_PORT
+ENV SERVER_PORT=${SERVER_PORT}
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
@@ -13,11 +16,7 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
-# Build the TypeScript code
-RUN npm run build
-
-# Expose the port the app runs on
-EXPOSE ${BACKEND_PORT}
+EXPOSE ${SERVER_PORT}
 
 # Start the application
 CMD ["npm", "start"]
