@@ -2,7 +2,7 @@ Portfolio Website
 
 Welcome to my portfolio website! This project is built for my 2nd semester exam at KEA in Web Development, this application includes a full stack 3-tier implementation with CRUD functionality for project management.
 
-Tech Stack
+Tech Stack:
     Frontend: React, Next.js, Tailwind CSS
     Backend: Node.js, Express
     Database: MySQL (via TypeORM for managing database entities)
@@ -13,5 +13,5 @@ To start project:
     Create a .env file with MYSQL_URL in the root folder.
     For development: docker compose up --build
 
-Usage
+Usage:
 After starting the project, you can access the portfolio site in your browser at http://localhost:3000. The backend runs on http://localhost:5000
